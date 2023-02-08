@@ -19,6 +19,7 @@
 package org.matsim.project;
 
 import com.google.inject.internal.asm.$Type;
+import org.mapdb.Atomic;
 import org.matsim.api.core.v01.Id;
 import org.matsim.api.core.v01.Scenario;
 import org.matsim.api.core.v01.TransportMode;
@@ -43,9 +44,9 @@ import org.matsim.vehicles.VehicleType;
 import org.matsim.vehicles.VehicleUtils;
 import org.matsim.vis.otfvis.OTFVisConfigGroup;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Set;
+//import java.util.ArrayList;
+//import java.util.Collection;
+//import java.util.Set;
 
 /**
  * @author nagel
@@ -55,7 +56,7 @@ public class RunMatsim{
 
 	public static void main(String[] args) {
 
-		Config config;
+		/*Config config;
 		if ( args==null || args.length==0 || args[0]==null ){
 			config = ConfigUtils.loadConfig( "scenarios/equil/config.xml" );
 		} else {
@@ -83,7 +84,7 @@ public class RunMatsim{
 		
 		// ---
 		
-		controler.run();
+		controler.run(); */
 	}
 	
 }
