@@ -19,3 +19,9 @@ hs_err_pid*
 
 /.idea/
 *.iml
+/scenarios/test/output/
+/scenarios/munich/output/
+/scenarios/munich/output_2/
+/scenarios/munich/output_3/
+/scenarios/munich/output_4/
+/scenarios/munich/output_5/

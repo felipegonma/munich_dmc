@@ -3,6 +3,7 @@ package org.matsim.discrete_mode_choice.src.main.java.org.matsim.contribs.discre
 import java.util.Collection;
 import java.util.List;
 
+import org.matsim.api.core.v01.network.Network;
 import org.matsim.api.core.v01.population.Leg;
 import org.matsim.api.core.v01.population.Person;
 import org.matsim.api.core.v01.population.PlanElement;
@@ -28,8 +29,9 @@ import org.matsim.facilities.Facility;
 public abstract class AbstractTripRouterEstimator implements TripEstimator {
 	private final TripRouter tripRouter;
 	private final ActivityFacilities facilities;
-	private final TimeInterpretation timeInterpretation;
-	private final Collection<String> preroutedModes;
+	private TimeInterpretation timeInterpretation;
+	private Collection<String> preroutedModes;
+	private Network network;
 
 	public AbstractTripRouterEstimator(TripRouter tripRouter, ActivityFacilities facilities,
 			TimeInterpretation timeInterpretation, Collection<String> preroutedModes) {
@@ -37,6 +39,12 @@ public abstract class AbstractTripRouterEstimator implements TripEstimator {
 		this.facilities = facilities;
 		this.timeInterpretation = timeInterpretation;
 		this.preroutedModes = preroutedModes;
+	}
+
+	public AbstractTripRouterEstimator(TripRouter tripRouter, Network network, ActivityFacilities facilities) {
+		this.tripRouter = tripRouter;
+		this.facilities = facilities;
+		this.network = network;
 	}
 
 	private boolean isPrerouted(String mode, DiscreteModeChoiceTrip trip) {
