@@ -25,3 +25,7 @@ hs_err_pid*
 /scenarios/munich/output_3/
 /scenarios/munich/output_4/
 /scenarios/munich/output_5/
+/scenarios/test/
+/scenarios/equil/
+/scenarios/munich/
+/src/main/java/org/matsim/discrete_mode_choice/

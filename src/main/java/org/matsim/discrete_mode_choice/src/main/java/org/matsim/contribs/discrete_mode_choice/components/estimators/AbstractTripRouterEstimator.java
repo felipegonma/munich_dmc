@@ -1,6 +1,7 @@
 package org.matsim.discrete_mode_choice.src.main.java.org.matsim.contribs.discrete_mode_choice.components.estimators;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import org.matsim.api.core.v01.network.Network;
@@ -40,6 +41,8 @@ public abstract class AbstractTripRouterEstimator implements TripEstimator {
 		this.timeInterpretation = timeInterpretation;
 		this.preroutedModes = preroutedModes;
 	}
+
+
 
 	public AbstractTripRouterEstimator(TripRouter tripRouter, Network network, ActivityFacilities facilities) {
 		this.tripRouter = tripRouter;
