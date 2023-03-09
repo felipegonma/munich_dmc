@@ -1,6 +1,5 @@
 package org.matsim.project.run;
 
-import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.geom.Point;
@@ -8,11 +7,9 @@ import org.locationtech.jts.io.ParseException;
 import org.locationtech.jts.io.WKTReader;
 import org.matsim.api.core.v01.Coord;
 import org.matsim.api.core.v01.Id;
-import org.matsim.api.core.v01.IdMap;
 import org.matsim.api.core.v01.Scenario;
 import org.matsim.api.core.v01.population.*;
 import org.matsim.core.config.ConfigUtils;
-import org.matsim.core.gbl.MatsimRandom;
 import org.matsim.core.population.io.PopulationReader;
 import org.matsim.core.scenario.ScenarioUtils;
 import org.matsim.core.utils.geometry.CoordinateTransformation;
@@ -40,18 +37,18 @@ public class CleanPopulation {
         //Read zone shapefile
         shapeMap = readShapeFile(ZONE_FILE, ZONE_ID);
         //Create the commuter flow by OD relations
-        createOD("09162"); //471859
+        PopulationCleaner("09162"); //471859
         //Write out the generated commuter flow
         new PopulationWriter(scenario.getPopulation()).write("scenarios/munich/Population_2.xml");
 
     }
 
-    private static void createOD(String origin) {
+    private static void PopulationCleaner(String origin) {
         Geometry home = shapeMap.get(origin);
-            createOneCommuter(home);
+            RemoveAgents(home);
     }
 
-    private static void createOneCommuter(Geometry g) {
+    private static void RemoveAgents(Geometry g) {
         List<Id<Person>> peopleOut = new ArrayList<>();
         int in = 0;
         int out = 0;
