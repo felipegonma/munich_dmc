@@ -26,8 +26,8 @@ public class MunichModeChoiceModel extends AbstractDiscreteModeChoiceExtension {
     @Provides
     @Singleton
     public WalkDurationConstraint.Factory provideWalkDurationConstraintFactory(DiscreteModeChoiceConfigGroup dmcConfig,
-                                                                               HomeFinder homeFinder, Config config) {
-        return new WalkDurationConstraint.Factory(config);
+                                                                               HomeFinder homeFinder) {
+        return new WalkDurationConstraint.Factory();
     }
 
     @Provides

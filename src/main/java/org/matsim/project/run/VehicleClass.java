@@ -16,6 +16,7 @@ import java.util.Map;
 
 public class VehicleClass {
     public void addVehicles (Scenario scenario) {
+        /*
         Vehicles vehicles = VehicleUtils.createVehiclesContainer();
         VehicleType bevVehicleType = VehicleUtils.getFactory()
                 .createVehicleType(Id.create("bev", VehicleType.class));
@@ -40,7 +41,10 @@ public class VehicleClass {
         vehicles.addVehicleType(dieselVehicleType);
         vehicles.addVehicleType(gasolineVehicleType);
 
-        for (Person person: scenario.getPopulation().getPersons().values()) {
+        Vehicles vehicles1 = VehicleUtils.createVehiclesContainer();
+        new MatsimVehicleReader(vehicles1).readFile("scenarios/munich/cars.xml");*/
+
+/*        for (Person person: scenario.getPopulation().getPersons().values()) {
             Vehicle vehicle;
             Id<Vehicle> vehicleId = Id.createVehicleId(person.getId());
             Map<String, Id<Vehicle>> modeVehicle = new HashMap<>();
@@ -54,8 +58,13 @@ public class VehicleClass {
             modeVehicle.put("car", vehicleId);
             VehicleUtils.insertVehicleIdsIntoAttributes(person, modeVehicle);
 
+        }*/
+        for (Person person: scenario.getPopulation().getPersons().values()) {
+            Id<Vehicle> vehicleId = Id.createVehicleId(person.getId());
+            Map<String, Id<Vehicle>> modeVehicle = new HashMap<>();
+            modeVehicle.put("car", vehicleId);
+            VehicleUtils.insertVehicleIdsIntoAttributes(person, modeVehicle);
         }
-
-        new MatsimVehicleWriter(vehicles).writeFile("scenarios/munich/cars.xml");
+        //new MatsimVehicleWriter(vehicles).writeFile("scenarios/munich/cars.xml");
     }
 }

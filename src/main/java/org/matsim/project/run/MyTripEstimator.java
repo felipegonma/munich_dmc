@@ -87,24 +87,42 @@ class MyTripEstimator extends AbstractTripRouterEstimator {
                         VehicleType car = scenario.getVehicles().getVehicles().get(vehicle).getType();
                         switch (car.getId().toString()) {
                             case "gasoline":
-                                utility += -0.0 - (0.022 + 0.25) * travelDistance * (0.79) - 0.03 * travelTime;
+                                utility += -3.65 - (0.022 + 0.25) * travelDistance * (0.79) - 0.15 * travelTime; //Scenario 1
+                                //utility += -3.25 - (0.885) * travelDistance * (0.79) - 0.15 * travelTime; // Scenario 2
+                                //utility += -3.65 - (0.272 + 0.1590) * travelDistance * (0.79) - 0.15 * travelTime; // Scenario 3
+                                //utility += -3.25 - (0.885 + 0.1590) * travelDistance * (0.79) - 0.15 * travelTime; // Scenario 4
                                 break;
                             case "diesel":
-                                utility += -0.0 - (0.022 + 0.25) * travelDistance * (0.79) - 0.03 * travelTime;
+                                utility += -3.65 - (0.022 + 0.25) * travelDistance * (0.79) - 0.15 * travelTime;
+                                //utility += -3.25 - (0.885) * travelDistance * (0.79) - 0.15 * travelTime;
+                                //utility += -3.65 - (0.272 + 0.1667) * travelDistance * (0.79) - 0.15 * travelTime;
+                                //utility += -3.25 - (0.885 + 0.1667) * travelDistance * (0.79) - 0.15 * travelTime;
                                 break;
                             case "bev":
-                                utility += -0.0 - (0.022 + 0.25) * travelDistance * (0.79) - 0.03 * travelTime;
+                                utility += -3.65 - (0.022 + 0.25) * travelDistance * (0.79) - 0.15 * travelTime;
+                                //utility += -3.25 - (0.885) * travelDistance * (0.79) - 0.15 * travelTime;
+                                //utility += -3.65 - (0.272 + 0.1415) * travelDistance * (0.79) - 0.15 * travelTime;
+                                //utility += -3.25 - (0.885 + 0.1415) * travelDistance * (0.79) - 0.15 * travelTime;
                                 break;
                             case "phev":
-                                utility += -0.0 - (0.022 + 0.25) * travelDistance * (0.79) - 0.03 * travelTime;
+                                utility += -3.65 - (0.022 + 0.25) * travelDistance * (0.79) - 0.15 * travelTime;
+                                // utility += -3.25 - (0.885) * travelDistance * (0.79) - 0.15 * travelTime;
+                                // utility += -3.65 - (0.272 + 0.1503) * travelDistance * (0.79) - 0.15 * travelTime;
+                                //utility += -3.25 - (0.885 + 0.1503) * travelDistance * (0.79) - 0.15 * travelTime;
                                 break;
-
                         }
+                        break;
                     case TransportMode.walk:
                         utility += - 0 - (0.04 + 1.264) * travelDistance * (0.79); //0.499
+                         //utility += - 0 - (0.499) * travelDistance * (0.79); //0.499
+                        //utility += - 0 - (1.304 + 0.007) * travelDistance * (0.79);
+                        //utility += - 0 - (0.499 + 0.007) * travelDistance * (0.79);
                         break;
                     case TransportMode.bike:
-                        utility += -0.5 - (0.047 + 0.474) * travelDistance * (0.79); //0.147)
+                        utility += -2.90 - (0.047 + 0.474) * travelDistance * (0.79); //0.147)
+                        // utility += -2.90 - (0.147) * travelDistance * (0.79); //0.147)
+                        //utility += -2.90 - (0.535 + 0.0672) * travelDistance * (0.79); //0.147)
+                        //utility += -2.90 - (0.147 + 0.0672) * travelDistance * (0.79); //0.147)
                         break;
                 }
             }
@@ -131,6 +149,9 @@ class MyTripEstimator extends AbstractTripRouterEstimator {
                 switch (leg.getMode()){
                     case TransportMode.walk:
                         utility += - 0 - (0.04 + 1.264) * travelDistance * (0.79);
+                        //utility += - 0 - (0.499) * travelDistance * (0.79);
+                        //utility += - 0 - (1.304 + 0.007) * travelDistance * (0.79);
+                        //utility += - 0 - (0.499 + 0.007) * travelDistance * (0.79);
                         break;
 
                     case TransportMode.pt:
@@ -140,16 +161,22 @@ class MyTripEstimator extends AbstractTripRouterEstimator {
 
                         switch (tr.getTransportMode()){
                             case "bus":
-                                utility += -1 -0.79*(0.18 * travelDistance)
-                                        - 0.18*travelTime;
+                                utility += -2.50 -0.79*(0.18 * 1.2 * travelDistance) - 0.18*travelTime;
+                                //utility += -2.50 -0.79*(0.298 * travelDistance) - 0.18*travelTime;
+                                //utility += -2.50 -0.79*((0.18+0.1136) * travelDistance) - 0.18*travelTime;
+                                //utility += -2.50 -0.79*((0.298+0.1136) * travelDistance) - 0.18*travelTime;
                                 break;
                             case "tram":
-                                utility += -1 -0.79*(0.18 * travelDistance)
-                                        - 0.18*travelTime;
+                                utility += -2.50 -0.79*(0.18 * 1.2 * travelDistance) - 0.18*travelTime;
+                                //utility += -2.50 -0.79*(0.298 * travelDistance) - 0.18*travelTime;
+                                //utility += -2.50 -0.79*((0.18+0.0801) * travelDistance) - 0.18*travelTime;
+                                //utility += -2.50 -0.79*((0.298+0.0801) * travelDistance) - 0.18*travelTime;
                                 break;
                             case "subway":
-                                utility += -1 -0.79*(0.18 * travelDistance)
-                                        - 0.18*travelTime;
+                                utility += -2.50 -0.79*(0.18 * 1.2 * travelDistance) - 0.18*travelTime;
+                                //utility += -2.50 -0.79*(0.18 * travelDistance) - 0.18*travelTime;
+                                //utility += -2.50 -0.79*((0.18+0.0399) * travelDistance) - 0.18*travelTime;
+                                //utility += -2.50 -0.79*((0.18+0.0399) * travelDistance) - 0.18*travelTime;
                                 break;
                         }
                         break;
